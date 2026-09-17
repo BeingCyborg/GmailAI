@@ -9,13 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@inboxsdk/core": "^2.2.2",
+    "gmail-js": "^1.1.16",
+    "jquery": "^4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.27",
     "@types/chrome": "^0.0.280",
+    "@types/jquery": "^4.0.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",

@@ -20,15 +20,15 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
       <div className={`${sizeMap[size]} relative`}>
         {/* Outer ring */}
         <div
-          className={`${sizeMap[size]} absolute rounded-full border-2 border-primary-100`}
+          className={`${sizeMap[size]} absolute rounded-full border-2 border-[#e0e0e0]`}
         />
         {/* Spinning arc */}
         <div
-          className={`${sizeMap[size]} absolute rounded-full border-2 border-transparent border-t-primary-500 animate-spin-slow`}
+          className={`${sizeMap[size]} absolute rounded-full border-2 border-transparent border-t-[#0b57d0] animate-spin-slow`}
         />
       </div>
       {label && (
-        <p className="text-sm text-surface-500 animate-pulse-soft font-medium">
+        <p className="text-sm text-[#444746] animate-pulse-soft font-medium">
           {label}
         </p>
       )}

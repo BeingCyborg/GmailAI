@@ -17,11 +17,22 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.tsx-loader-CpxOc1_I.js"
+        "assets/index.tsx-loader-CU_JNmhV.js"
       ],
       "matches": [
         "https://mail.google.com/*"
-      ]
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "js": [
+        "assets/gmailjs-loader.ts-Ch4GJXYe.js"
+      ],
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
     }
   ],
   "action": {
@@ -40,9 +51,9 @@
         "https://mail.google.com/*"
       ],
       "resources": [
-        "pageWorld.js",
         "assets/client-DhEz86-d.js",
-        "assets/index.tsx-BhALg0Jj.js"
+        "assets/index.tsx-morm2sVx.js",
+        "assets/gmailjs-loader.ts-Ch4GJXYe.js"
       ],
       "use_dynamic_url": false
     }

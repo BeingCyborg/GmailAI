@@ -7,7 +7,7 @@ import type {
   DraftResponse,
 } from '../../shared/messaging';
 
-// ─── Types ──────────────────────────────────────────────────────────────────
+
 
 type ModalState =
   | { phase: 'loading-questions' }
@@ -21,7 +21,7 @@ interface QuestionModalProps {
   onClose: () => void;
 }
 
-// ─── Component ──────────────────────────────────────────────────────────────
+
 
 export const QuestionModal: React.FC<QuestionModalProps> = ({
   emailContext,
@@ -31,7 +31,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
   const [state, setState] = useState<ModalState>({ phase: 'loading-questions' });
   const [answers, setAnswers] = useState<string[]>([]);
 
-  // ── Fetch Questions ─────────────────────────────────────────────────────
+
   const fetchQuestions = useCallback(async () => {
     setState({ phase: 'loading-questions' });
     try {
@@ -63,7 +63,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
     fetchQuestions();
   }, [fetchQuestions]);
 
-  // ── Submit Answers ──────────────────────────────────────────────────────
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -101,7 +101,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
     }
   };
 
-  // ── Retry ───────────────────────────────────────────────────────────────
+
   const handleRetry = () => {
     if (state.phase === 'error' && state.retryPhase === 'questions') {
       fetchQuestions();
@@ -112,7 +112,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
     }
   };
 
-  // ── Answer Update ───────────────────────────────────────────────────────
+
   const updateAnswer = (index: number, value: string) => {
     setAnswers((prev) => {
       const next = [...prev];
@@ -121,7 +121,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
     });
   };
 
-  // ── Render ──────────────────────────────────────────────────────────────
+
   return (
     <div
       className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 animate-fade-in"
@@ -134,13 +134,13 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-modal overflow-hidden animate-slide-up">
+      <div className="relative w-full max-w-lg bg-[#ffffff] rounded-2xl shadow-modal overflow-hidden animate-slide-up">
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 px-6 py-4 flex items-center justify-between">
+        <div className="bg-[#ffffff] border-b border-[#e0e0e0] px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+            <div className="w-8 h-8 bg-transparent rounded-lg flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-white"
+                className="w-5 h-5 text-[#0b57d0]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -154,18 +154,15 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
               </svg>
             </div>
             <div>
-              <h2 className="text-white font-semibold text-base">
+              <h2 className="text-[#1f1f1f] text-lg font-normal">
                 AI Reply Assistant
               </h2>
-              <p className="text-white/70 text-xs">
-                Powered by Gemini
-              </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-[#444746] hover:text-[#1f1f1f] hover:bg-gray-100 transition-colors"
             aria-label="Close"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -180,7 +177,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
           {state.phase === 'loading-questions' && (
             <div className="py-12 flex flex-col items-center">
               <LoadingSpinner size="lg" label="Analyzing email thread..." />
-              <p className="text-xs text-surface-400 mt-4">
+              <p className="text-xs text-[#444746] mt-4">
                 Generating clarifying questions
               </p>
             </div>
@@ -189,15 +186,15 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
           {/* Questions Form */}
           {state.phase === 'questions' && (
             <form onSubmit={handleSubmit} id="qa-form">
-              <p className="text-sm text-surface-500 mb-5">
+              <p className="text-sm text-[#444746] mb-5">
                 Please answer these questions to help craft the perfect reply:
               </p>
 
               <div className="space-y-5">
                 {state.questions.map((question, index) => (
                   <div key={index} className="group">
-                    <label className="block text-sm font-medium text-surface-800 mb-2">
-                      <span className="inline-flex items-center justify-center w-5 h-5 bg-primary-50 text-primary-600 rounded-full text-xs font-bold mr-2">
+                    <label className="block text-sm font-medium text-[#1f1f1f] mb-2 flex items-center">
+                      <span className="inline-flex items-center justify-center w-6 h-6 bg-[#d3e3fd] text-[#041e49] font-medium rounded-full text-xs mr-3 shrink-0">
                         {index + 1}
                       </span>
                       {question}
@@ -207,8 +204,8 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
                       onChange={(e) => updateAnswer(index, e.target.value)}
                       placeholder="Type your answer..."
                       rows={2}
-                      className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm text-surface-800 placeholder:text-surface-400 
-                        focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 focus:bg-white
+                      className="w-full px-4 py-3 bg-[#ffffff] border border-[#c4c7c5] rounded-xl text-sm text-[#1f1f1f] placeholder-[#444746] 
+                        focus:outline-none focus:border-[#0b57d0] focus:ring-1 focus:ring-[#0b57d0]
                         transition-all duration-200 resize-none"
                       required
                     />
@@ -222,7 +219,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
           {state.phase === 'generating-draft' && (
             <div className="py-12 flex flex-col items-center">
               <LoadingSpinner size="lg" label="Composing your reply..." />
-              <p className="text-xs text-surface-400 mt-4">
+              <p className="text-xs text-[#444746] mt-4">
                 Crafting a professional response
               </p>
             </div>
@@ -236,18 +233,18 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
                 </svg>
               </div>
-              <p className="text-sm font-medium text-surface-800 mb-2">
+              <p className="text-sm font-medium text-[#1f1f1f] mb-2">
                 Something went wrong
               </p>
-              <p className="text-xs text-surface-500 mb-5 max-w-sm mx-auto break-words">
+              <p className="text-xs text-[#444746] mb-5 max-w-sm mx-auto break-words">
                 {state.message}
               </p>
               <button
                 onClick={handleRetry}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0b57d0] text-white text-sm font-medium rounded-full hover:bg-[#0842a0] transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" />
                 </svg>
                 Try Again
               </button>
@@ -257,21 +254,19 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
 
         {/* Footer */}
         {state.phase === 'questions' && (
-          <div className="px-6 py-4 bg-surface-50 border-t border-surface-100 flex items-center justify-between">
+          <div className="px-6 py-4 bg-[#ffffff] border-t border-[#e0e0e0] flex items-center justify-between">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 text-sm font-medium text-surface-600 hover:text-surface-800 hover:bg-surface-100 rounded-lg transition-colors"
+              className="px-4 py-2.5 text-sm font-medium text-[#0b57d0] hover:bg-[#f3f6fc] rounded-full transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="qa-form"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white text-sm font-semibold rounded-lg 
-                hover:from-primary-700 hover:to-primary-600 
-                active:scale-[0.98] shadow-sm hover:shadow-md
-                transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0b57d0] text-white text-sm font-medium rounded-full 
+                hover:bg-[#0842a0] active:scale-[0.98] transition-all duration-200"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />

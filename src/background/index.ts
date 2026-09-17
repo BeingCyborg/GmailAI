@@ -1,7 +1,3 @@
-// InboxSDK requires its own background listener to inject pageWorld.js
-// into the MAIN world via chrome.scripting.executeScript().
-// This MUST be imported before any other message handlers.
-import '@inboxsdk/core/background.js';
 
 import { generateQuestions, generateDraft } from './gemini';
 import { getApiKey, getModel } from '../shared/storage';
@@ -11,7 +7,7 @@ import type {
   DraftResponse,
 } from '../shared/messaging';
 
-// ─── Message Handler ────────────────────────────────────────────────────────
+
 
 chrome.runtime.onMessage.addListener(
   (
@@ -69,7 +65,7 @@ async function handleMessage(
   }
 }
 
-// ─── Install Handler ────────────────────────────────────────────────────────
+
 
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {
