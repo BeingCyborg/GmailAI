@@ -4,7 +4,7 @@
 
 <br />
 <div align="center">
-  <video src="https://github.com/BeingCyborg/GmailAI/blob/main/public/Intro.mp4?raw=true" width="800" autoplay="autoplay" loop="loop" muted="muted" playsinline controls></video>
+  <img src="./public/Intro.gif" alt="Gmail AI Reply Assistant Demo" width="800" />
 </div>
 <br />
 
