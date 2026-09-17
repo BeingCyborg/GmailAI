@@ -2,6 +2,12 @@
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![Manifest V3](https://img.shields.io/badge/Manifest_V3-333333?style=for-the-badge) ![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlebard&logoColor=white)
 
+<br />
+<div align="center">
+  <img src="./public/Intro.gif" alt="Gmail AI Reply Assistant Demo" width="800" />
+</div>
+<br />
+
 ## Overview
 Gmail AI Reply Assistant is a powerful Manifest V3 Chrome Extension that seamlessly integrates into Gmail to help you craft professional, context-aware email replies. Powered by the Google Gemini API, it analyzes the context of your email thread, asks you 2-3 clarifying questions to determine your intent, and generates a personalized, high-quality reply drafted directly into your compose window.
 

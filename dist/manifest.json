@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.tsx-loader-CU_JNmhV.js"
+        "assets/index.tsx-loader-CgAj9u5N.js"
       ],
       "matches": [
         "https://mail.google.com/*"
@@ -52,7 +52,7 @@
       ],
       "resources": [
         "assets/client-DhEz86-d.js",
-        "assets/index.tsx-morm2sVx.js",
+        "assets/index.tsx-DkhYAXXm.js",
         "assets/gmailjs-loader.ts-Ch4GJXYe.js"
       ],
       "use_dynamic_url": false

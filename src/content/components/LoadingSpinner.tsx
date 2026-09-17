@@ -17,18 +17,9 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-3">
-      <div className={`${sizeMap[size]} relative`}>
-        {/* Outer ring */}
-        <div
-          className={`${sizeMap[size]} absolute rounded-full border-2 border-[#e0e0e0]`}
-        />
-        {/* Spinning arc */}
-        <div
-          className={`${sizeMap[size]} absolute rounded-full border-2 border-transparent border-t-[#0b57d0] animate-spin-slow`}
-        />
-      </div>
+      <div className={`${sizeMap[size]} rounded-full border-4 border-[#e0e2e0] border-t-[#0b57d0] animate-spin`} />
       {label && (
-        <p className="text-sm text-[#444746] animate-pulse-soft font-medium">
+        <p className="text-sm text-[#444746] animate-pulse font-medium">
           {label}
         </p>
       )}

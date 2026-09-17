@@ -133,8 +133,9 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
         onClick={onClose}
       />
 
-      {/* Modal Card */}
-      <div className="relative w-full max-w-lg bg-[#ffffff] rounded-2xl shadow-modal overflow-hidden animate-slide-up">
+      {/* Modal Card Wrapper */}
+      <div className="relative w-full max-w-lg p-[3px] rounded-[31px] google-gradient-border shadow-[0_4px_12px_rgba(0,0,0,0.15),0_8px_24px_rgba(0,0,0,0.10)] transform transition-all duration-300 ease-out animate-slide-up">
+        <div className="w-full bg-[#ffffff] rounded-[28px] overflow-hidden">
         {/* Header */}
         <div className="bg-[#ffffff] border-b border-[#e0e0e0] px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -162,7 +163,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-[#444746] hover:text-[#1f1f1f] hover:bg-gray-100 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full text-[#444746] hover:text-[#1f1f1f] hover:bg-[#f8f9fa] active:bg-[#e8eaed] transition-colors"
             aria-label="Close"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -204,9 +205,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
                       onChange={(e) => updateAnswer(index, e.target.value)}
                       placeholder="Type your answer..."
                       rows={2}
-                      className="w-full px-4 py-3 bg-[#ffffff] border border-[#c4c7c5] rounded-xl text-sm text-[#1f1f1f] placeholder-[#444746] 
-                        focus:outline-none focus:border-[#0b57d0] focus:ring-1 focus:ring-[#0b57d0]
-                        transition-all duration-200 resize-none"
+                      className="w-full bg-[#ffffff] border border-[#747775] rounded-[16px] px-4 py-3 text-[#1f1f1f] placeholder:text-[#444746] transition-all duration-200 focus:border-[#0b57d0] focus:ring-2 focus:ring-[#0b57d0]/20 focus:outline-none hover:border-[#1f1f1f] resize-none"
                       required
                     />
                   </div>
@@ -241,7 +240,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
               </p>
               <button
                 onClick={handleRetry}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0b57d0] text-white text-sm font-medium rounded-full hover:bg-[#0842a0] transition-colors"
+                className="inline-flex items-center gap-2 bg-[#0b57d0] text-white rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[#0842a0] hover:shadow-md active:bg-[#062e6f] active:scale-[0.98]"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" />
@@ -258,15 +257,14 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 text-sm font-medium text-[#0b57d0] hover:bg-[#f3f6fc] rounded-full transition-colors"
+              className="text-[#0b57d0] rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[#f8f9fa] active:bg-[#e8eaed]"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="qa-form"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0b57d0] text-white text-sm font-medium rounded-full 
-                hover:bg-[#0842a0] active:scale-[0.98] transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-[#0b57d0] text-white rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[#0842a0] hover:shadow-md active:bg-[#062e6f] active:scale-[0.98]"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
@@ -275,6 +273,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
             </button>
           </div>
         )}
+        </div>
       </div>
     </div>
   );
