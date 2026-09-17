@@ -4,7 +4,7 @@
 
 <br />
 <div align="center">
-  <video src="https://raw.githubusercontent.com/BeingCyborg/GmailAI/main/public/Intro.mp4" width="800" autoplay loop muted playsinline></video>
+  <video src="https://github.com/BeingCyborg/GmailAI/raw/main/public/Intro.mp4" width="800" autoplay loop muted playsinline></video>
 </div>
 <br />
 
