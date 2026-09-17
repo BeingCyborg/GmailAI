@@ -44,36 +44,7 @@ sequenceDiagram
     MW->>MW: Inject Draft into Compose Body
 ```
 
-## Installation (Developer Mode)
 
-To install and test this extension locally, follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd gmail-ai-reply
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Build the extension:**
-   ```bash
-   npm run build
-   ```
-   This will generate a `dist/` directory containing the compiled extension.
-
-4. **Load into Chrome:**
-   - Open Google Chrome and navigate to `chrome://extensions/`.
-   - Enable **Developer mode** in the top right corner.
-   - Click on **Load unpacked** in the top left.
-   - Select the `dist/` folder generated in step 3.
-
-5. **Configure API Key:**
-   - Click on the extension icon in your Chrome toolbar to open the settings popup.
-   - Enter your Gemini API key (you can get one from Google AI Studio).
 
 ## Tech Stack
 - **Framework**: React 18
