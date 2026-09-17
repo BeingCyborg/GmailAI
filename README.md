@@ -4,7 +4,7 @@
 
 <br />
 <div align="center">
-  <img src="./public/Intro.gif" alt="Gmail AI Reply Assistant Demo" width="800" />
+  <video src="./public/Intro.mp4" width="800" autoplay loop muted playsinline></video>
 </div>
 <br />
 
